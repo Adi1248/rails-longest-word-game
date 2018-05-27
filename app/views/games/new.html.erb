@@ -1,14 +1,20 @@
 <h1>New game</h1>
 
+<ul class="letters-list">
 <% @letters.each do |letter| %>
-<%= letter %>
+<li class= " single-letter"><%=letter%></li>
 <%end%>
+</ul>
+<!--
+<% @letters.each do |letter| %>
+<%=letter%>
+<%end%> -->
 
 <p class= word-question> What is the longest word you can find?</p>
-<form action="/score" method="post">
+<form class="form" action="/score" method="post">
   <%= hidden_field_tag :grid, @letters.join %>
 
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <input type="text" name="word" placeholder="type a word">
-  <input type="submit" value= "Play">
+  <input class="btn" type="submit" value= "Play">
 </form>
